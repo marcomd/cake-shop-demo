@@ -6,9 +6,11 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Order · Crumbcloud</title>
     <meta name="description" content="Crumbcloud bakes handmade celebration cakes to order. Fictitious business for a demo." />
+    <meta name="theme-color" content="#fbf4ee" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRUMB0DEMO"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,47 +23,136 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="/">Crumbcloud</a>
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Crumbcloud home">
+          <span class="brand-mark" aria-hidden="true">c</span>
+          <span>Crumbcloud</span>
+        </a>
         <nav class="nav" aria-label="Main">
           <a href="/">Cakes</a>
-          <a href="/order/">Order</a>
           <a href="/where/">Visit us</a>
           <a href="/contact/">Contact</a>
+          <a class="nav-cta" href="/order/">Order now</a>
         </nav>
       </div>
     </header>
 
-    <main class="wrap">
-      <h1>Order a cake</h1>
-      <p>Choose a cake and a pickup day. Payment is taken online when you order.</p>
-
-      <form id="order-form">
-        <label>Cake
-          <select name="cake">
-            <option value="cloud-sponge">Cloud sponge · €28</option>
-            <option value="pistachio-dream">Pistachio dream · €34</option>
-            <option value="lemon-meringue">Lemon meringue · €31</option>
-          </select>
-        </label>
-        <label>Quantity <input name="quantity" type="number" min="1" max="10" value="1" /></label>
-        <label>Pickup day <input name="pickup" type="date" required /></label>
-        <label>Name <input name="name" autocomplete="name" required /></label>
-        <label>Email <input name="email" type="email" autocomplete="email" required /></label>
-        <div>
-          <p><strong>Card details</strong></p>
-          <div id="card-element"></div>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Order online</p>
+          <h1>Order a cake</h1>
+          <p class="lead">Choose a cake and a pickup day. Payment is taken online when you order.</p>
         </div>
-        <p class="total">Total: <span id="order-total">€28</span></p>
-        <button class="button" type="submit">Pay and order</button>
-        <p id="order-status" class="status" role="status"></p>
-      </form>
+      </section>
+
+      <section class="section wrap">
+        <form id="order-form" class="order-layout">
+          <div class="panel form">
+            <fieldset class="choices">
+              <legend>1. Choose your cake</legend>
+              <label class="choice">
+                <input type="radio" name="cake" value="cloud-sponge" checked />
+                <span class="choice-card tint-rose">
+                  <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Cloud sponge cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#f6d9c4"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fffaf5"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fffaf5"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fffaf5"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fffaf5"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fffaf5"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fffaf5"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fffaf5"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fffaf5"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#f9e6d6"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fffaf5"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fffaf5"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fffaf5"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fffaf5"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fffaf5"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fffaf5"/>
+            <circle cx="100" cy="45" r="10" fill="#d7385e"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+                  <span class="choice-text"><strong>Cloud sponge</strong><span>€28</span></span>
+                </span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="cake" value="pistachio-dream" />
+                <span class="choice-card tint-pistachio">
+                  <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Pistachio dream cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#b9cf8f"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fdfaf0"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fdfaf0"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fdfaf0"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fdfaf0"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fdfaf0"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fdfaf0"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fdfaf0"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fdfaf0"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#cfdfae"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fdfaf0"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fdfaf0"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fdfaf0"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fdfaf0"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fdfaf0"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fdfaf0"/>
+            <circle cx="100" cy="45" r="10" fill="#c22f55"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+                  <span class="choice-text"><strong>Pistachio dream</strong><span>€34</span></span>
+                </span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="cake" value="lemon-meringue" />
+                <span class="choice-card tint-lemon">
+                  <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Lemon meringue cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#f4d774"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fffdf6"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fffdf6"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fffdf6"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fffdf6"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fffdf6"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fffdf6"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fffdf6"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fffdf6"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#f8e5a2"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fffdf6"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fffdf6"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fffdf6"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fffdf6"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fffdf6"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fffdf6"/>
+            <circle cx="100" cy="45" r="10" fill="#f0a43a"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+                  <span class="choice-text"><strong>Lemon meringue</strong><span>€31</span></span>
+                </span>
+              </label>
+            </fieldset>
+
+            <fieldset class="form">
+              <legend>2. Pickup and contact</legend>
+              <div class="field-row">
+                <label>Quantity <input name="quantity" type="number" min="1" max="10" value="1" /></label>
+                <label>Pickup day <input name="pickup" type="date" required /></label>
+              </div>
+              <div class="field-row">
+                <label>Name <input name="name" autocomplete="name" placeholder="Your name" required /></label>
+                <label>Email <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="panel summary">
+            <h2>3. Payment</h2>
+            <p class="muted">Card details</p>
+            <div id="card-element"></div>
+            <p class="secure"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure card payment</p>
+            <div class="total-row"><span>Total</span><span id="order-total" class="total">€28</span></div>
+            <button class="button button-block" type="submit">Pay and order</button>
+            <p id="order-status" class="status" role="status"></p>
+          </aside>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="wrap">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">c</span><span>Crumbcloud</span></a>
+          <p class="muted">Handmade celebration cakes, baked in small batches.</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Shop</h2>
+          <ul class="footer-links">
+            <li><a href="/order/">Order a cake</a></li>
+            <li><a href="/where/">Opening hours</a></li>
+            <li><a href="/contact/">Custom orders</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Get inspired</h2>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
         <span>© <span data-year>2026</span> Crumbcloud · A fictitious bakery created for a demo.</span>
-        <a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a>
       </div>
     </footer>
   </body>

@@ -6,9 +6,11 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Contact · Crumbcloud</title>
     <meta name="description" content="Crumbcloud bakes handmade celebration cakes to order. Fictitious business for a demo." />
+    <meta name="theme-color" content="#fbf4ee" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRUMB0DEMO"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -22,40 +24,85 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="/">Crumbcloud</a>
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Crumbcloud home">
+          <span class="brand-mark" aria-hidden="true">c</span>
+          <span>Crumbcloud</span>
+        </a>
         <nav class="nav" aria-label="Main">
           <a href="/">Cakes</a>
-          <a href="/order/">Order</a>
           <a href="/where/">Visit us</a>
           <a href="/contact/">Contact</a>
+          <a class="nav-cta" href="/order/">Order now</a>
         </nav>
       </div>
     </header>
 
-    <main class="wrap">
-      <h1>Contact us</h1>
-      <p>Questions about allergens, custom cakes or large orders? Write to us and we will reply within one working day.</p>
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow">Contact</p>
+          <h1>Let’s talk cake</h1>
+          <p class="lead">Questions about allergens, custom cakes or large orders? Write to us and we will reply within one working day.</p>
+        </div>
+      </section>
 
-      <form id="contact-form">
-        <label>Name <input name="name" autocomplete="name" required /></label>
-        <label>Email <input name="email" type="email" autocomplete="email" required /></label>
-        <label>Message <textarea name="message" rows="5" required></textarea></label>
-        <!-- Google's public reCAPTCHA v2 test key: always passes, shows a "testing only" notice. -->
-        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-        <button class="button" type="submit">Send message</button>
-        <p id="contact-status" class="status" role="status"></p>
-      </form>
+      <section class="section wrap split">
+        <form id="contact-form" class="panel form">
+          <div class="field-row">
+            <label>Name <input name="name" autocomplete="name" placeholder="Your name" required /></label>
+            <label>Email <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
+          </div>
+          <label>Message <textarea name="message" rows="6" placeholder="Tell us about your celebration…" required></textarea></label>
+          <!-- Google's public reCAPTCHA v2 test key: always passes, shows a "testing only" notice. -->
+          <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+          <button class="button" type="submit">Send message</button>
+          <p id="contact-status" class="status" role="status"></p>
+        </form>
 
-      <p class="section">
-        Coming by? <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Syntagma+Square,+Athens" target="_blank" rel="noopener">Get directions</a>
-      </p>
+        <aside class="panel info-list">
+          <div class="info-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div><h3>Email</h3><p>hello@crumbcloud.example</p></div>
+          </div>
+          <div class="info-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+            <div><h3>Phone</h3><p>Tue–Sat, 9:00–17:00</p></div>
+          </div>
+          <div class="info-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-6-6-11a6 6 0 0 1 12 0c0 5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg>
+            <div>
+              <h3>Coming by?</h3>
+              <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Syntagma+Square,+Athens" target="_blank" rel="noopener">Get directions</a></p>
+            </div>
+          </div>
+        </aside>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="wrap">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">c</span><span>Crumbcloud</span></a>
+          <p class="muted">Handmade celebration cakes, baked in small batches.</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Shop</h2>
+          <ul class="footer-links">
+            <li><a href="/order/">Order a cake</a></li>
+            <li><a href="/where/">Opening hours</a></li>
+            <li><a href="/contact/">Custom orders</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Get inspired</h2>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
         <span>© <span data-year>2026</span> Crumbcloud · A fictitious bakery created for a demo.</span>
-        <a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a>
       </div>
     </footer>
   </body>

@@ -6,10 +6,12 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Crumbcloud · Handmade cakes</title>
     <meta name="description" content="Crumbcloud bakes handmade celebration cakes to order. Fictitious business for a demo." />
+    <meta name="theme-color" content="#fbf4ee" />
     <link rel="dns-prefetch" href="https://js.stripe.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRUMB0DEMO"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -21,62 +23,212 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="/">Crumbcloud</a>
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Crumbcloud home">
+          <span class="brand-mark" aria-hidden="true">c</span>
+          <span>Crumbcloud</span>
+        </a>
         <nav class="nav" aria-label="Main">
           <a href="/">Cakes</a>
-          <a href="/order/">Order</a>
           <a href="/where/">Visit us</a>
           <a href="/contact/">Contact</a>
+          <a class="nav-cta" href="/order/">Order now</a>
         </nav>
       </div>
     </header>
 
-    <main class="wrap">
+    <main>
       <section class="hero">
-        <h1>Cakes as light as a cloud</h1>
-        <p>We bake celebration cakes by hand, in small batches, with seasonal fruit and real butter. Order online and pick up at the shop.</p>
-        <p><a class="button" href="/order/">Order a cake</a></p>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Handmade in Athens</p>
+            <h1>Cakes as light <em>as a cloud.</em></h1>
+            <p class="lead">We bake celebration cakes by hand, in small batches, with seasonal fruit and real butter. Order online and pick up at the shop.</p>
+            <div class="hero-actions">
+              <a class="button" href="/order/">Order a cake</a>
+              <a class="button button-ghost" href="/where/">Visit the shop</a>
+            </div>
+            <ul class="hero-stats">
+              <li><strong>12</strong> cakes a day</li>
+              <li><strong>4.9★</strong> from 380 reviews</li>
+            </ul>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-blob"></div>
+            <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Celebration cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#e9b8c6"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fffaf7"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fffaf7"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fffaf7"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fffaf7"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fffaf7"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fffaf7"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fffaf7"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fffaf7"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#f3d2db"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fffaf7"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fffaf7"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fffaf7"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fffaf7"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fffaf7"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fffaf7"/>
+            <circle cx="100" cy="45" r="10" fill="#c22f55"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          </div>
+        </div>
       </section>
 
-      <section class="section">
-        <h2>This week's cakes</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Cloud sponge</h3>
-            <p>Vanilla chiffon, whipped cream and strawberries.</p>
-            <p class="price">€28</p>
+      <section class="section wrap">
+        <div class="features">
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c9 1 14-5 14-14C10 5 4 10 5 19z"/><path d="M5 19 13 11"/></svg>
+            <div>
+              <h3>Seasonal ingredients</h3>
+              <p>Fruit from local growers, real butter, no shortcuts.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            <div>
+              <h3>Ready in 48 hours</h3>
+              <p>Order by Thursday for weekend celebrations.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+            <div>
+              <h3>Pickup at the shop</h3>
+              <p>Boxed, chilled and ready when you arrive.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Fresh this week</p>
+            <h2>This week's cakes</h2>
+          </div>
+          <a class="link-arrow" href="/order/">See all and order <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="cake-grid">
+          <article class="cake-card">
+            <div class="cake-visual tint-rose">
+              <span class="badge">Bestseller</span>
+              <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Cloud sponge cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#f6d9c4"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fffaf5"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fffaf5"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fffaf5"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fffaf5"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fffaf5"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fffaf5"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fffaf5"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fffaf5"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#f9e6d6"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fffaf5"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fffaf5"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fffaf5"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fffaf5"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fffaf5"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fffaf5"/>
+            <circle cx="100" cy="45" r="10" fill="#d7385e"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+            </div>
+            <div class="cake-body">
+              <div class="cake-head">
+                <h3>Cloud sponge</h3>
+                <span class="price">€28</span>
+              </div>
+              <p>Vanilla chiffon, whipped cream and fresh strawberries.</p>
+              <a class="link-arrow" href="/order/">Order this cake <span aria-hidden="true">→</span></a>
+            </div>
           </article>
-          <article class="card">
-            <h3>Pistachio dream</h3>
-            <p>Pistachio sponge, white chocolate ganache, raspberries.</p>
-            <p class="price">€34</p>
+          <article class="cake-card">
+            <div class="cake-visual tint-pistachio">
+              <span class="badge">New</span>
+              <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Pistachio dream cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#b9cf8f"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fdfaf0"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fdfaf0"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fdfaf0"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fdfaf0"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fdfaf0"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fdfaf0"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fdfaf0"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fdfaf0"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#cfdfae"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fdfaf0"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fdfaf0"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fdfaf0"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fdfaf0"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fdfaf0"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fdfaf0"/>
+            <circle cx="100" cy="45" r="10" fill="#c22f55"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+            </div>
+            <div class="cake-body">
+              <div class="cake-head">
+                <h3>Pistachio dream</h3>
+                <span class="price">€34</span>
+              </div>
+              <p>Pistachio sponge, white chocolate ganache, raspberries.</p>
+              <a class="link-arrow" href="/order/">Order this cake <span aria-hidden="true">→</span></a>
+            </div>
           </article>
-          <article class="card">
-            <h3>Lemon meringue</h3>
-            <p>Lemon curd, toasted Italian meringue, shortbread base.</p>
-            <p class="price">€31</p>
+          <article class="cake-card">
+            <div class="cake-visual tint-lemon">
+              
+              <svg class="cake-art" viewBox="0 0 200 170" role="img" aria-label="Lemon meringue cake">
+            <ellipse cx="100" cy="156" rx="84" ry="8" fill="#3b2420" opacity=".08"/>
+            <rect x="20" y="144" width="160" height="9" rx="4.5" fill="#fff" stroke="#ead9cc"/>
+            <rect x="34" y="92" width="132" height="54" rx="12" fill="#f4d774"/>
+            <rect x="34" y="90" width="132" height="14" rx="7" fill="#fffdf6"/><rect x="40" y="96" width="12" height="20" rx="6" fill="#fffdf6"/><rect x="58" y="96" width="12" height="14" rx="6" fill="#fffdf6"/><rect x="76" y="96" width="12" height="24" rx="6" fill="#fffdf6"/><rect x="94" y="96" width="12" height="16" rx="6" fill="#fffdf6"/><rect x="112" y="96" width="12" height="22" rx="6" fill="#fffdf6"/><rect x="130" y="96" width="12" height="13" rx="6" fill="#fffdf6"/><rect x="148" y="96" width="12" height="19" rx="6" fill="#fffdf6"/>
+            <rect x="60" y="56" width="80" height="40" rx="10" fill="#f8e5a2"/>
+            <rect x="60" y="54" width="80" height="12" rx="6" fill="#fffdf6"/><rect x="66" y="60" width="10" height="14" rx="5" fill="#fffdf6"/><rect x="82" y="60" width="10" height="20" rx="5" fill="#fffdf6"/><rect x="98" y="60" width="10" height="12" rx="5" fill="#fffdf6"/><rect x="114" y="60" width="10" height="18" rx="5" fill="#fffdf6"/><rect x="128" y="60" width="10" height="13" rx="5" fill="#fffdf6"/>
+            <circle cx="100" cy="45" r="10" fill="#f0a43a"/>
+            <circle cx="96" cy="41" r="3" fill="#fff" opacity=".55"/>
+            <path d="M101 36 q3 -10 12 -13" stroke="#4f7a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+            </div>
+            <div class="cake-body">
+              <div class="cake-head">
+                <h3>Lemon meringue</h3>
+                <span class="price">€31</span>
+              </div>
+              <p>Lemon curd, toasted Italian meringue, shortbread base.</p>
+              <a class="link-arrow" href="/order/">Order this cake <span aria-hidden="true">→</span></a>
+            </div>
           </article>
         </div>
       </section>
 
-      <section class="section">
-        <h2>Watch us bake</h2>
-        <div class="embed">
-          <iframe
-            src="https://www.youtube.com/embed/Cr0mbCl0udX"
-            title="How we bake our cloud sponge"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+      <section class="section wrap">
+        <div class="video-block">
+          <div class="video-copy">
+            <p class="eyebrow">Behind the counter</p>
+            <h2>Watch us bake</h2>
+            <p>From folding the meringue to the last strawberry: a morning in our kitchen, in three minutes.</p>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/Cr0mbCl0udX"
+              title="How we bake our cloud sponge"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+      </section>
+
+      <section class="section wrap">
+        <figure class="quote">
+          <blockquote>“The pistachio dream was gone in ten minutes. Everyone asked where it came from.”</blockquote>
+          <figcaption>Eleni, birthday order</figcaption>
+        </figure>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="wrap">
+      <div class="wrap footer-grid">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">c</span><span>Crumbcloud</span></a>
+          <p class="muted">Handmade celebration cakes, baked in small batches.</p>
+        </div>
+        <div>
+          <h2 class="footer-title">Shop</h2>
+          <ul class="footer-links">
+            <li><a href="/order/">Order a cake</a></li>
+            <li><a href="/where/">Opening hours</a></li>
+            <li><a href="/contact/">Custom orders</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Get inspired</h2>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
         <span>© <span data-year>2026</span> Crumbcloud · A fictitious bakery created for a demo.</span>
-        <a href="https://www.youtube.com/results?search_query=cake+decorating" target="_blank" rel="noopener">Cake videos on YouTube</a>
       </div>
     </footer>
   </body>

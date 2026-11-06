@@ -19,7 +19,10 @@ form?.addEventListener('change', updateTotal);
 updateTotal();
 
 loadStripe(STRIPE_PUBLISHABLE_KEY).then((stripe) => {
-  const card = stripe?.elements().create('card', { hidePostalCode: true });
+  const card = stripe?.elements().create('card', {
+    hidePostalCode: true,
+    style: { base: { fontFamily: 'Inter, system-ui, sans-serif', fontSize: '16px', color: '#2e1c18' } },
+  });
   card?.mount('#card-element');
 });
 
