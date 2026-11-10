@@ -1,65 +1,58 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T08:58:45Z",
+  "generated_at": "2026-11-10T12:48:40Z",
   "generated_by": "iubenda-code setup",
   "rules_version": "2026-11-05",
   "site": {
     "id": "4756584",
     "public_id": "45628199",
     "embed": "unified",
-    "embed_location": null
+    "embed_location": "index.html:5"
   },
   "detected": [
     {
       "key": "google-analytics-4",
       "iubenda_service_id": 2110,
       "loader": "script",
-      "locations": ["index.html:15", "order/index.html:14", "where/index.html:14", "contact/index.html:14"],
-      "gated": false
-    },
-    {
-      "key": "google-fonts",
-      "iubenda_service_id": 335,
-      "loader": "stylesheet",
-      "locations": ["index.html:13", "order/index.html:12", "where/index.html:12", "contact/index.html:12"],
-      "gated": false
+      "locations": ["index.html:14", "order/index.html:13", "where/index.html:13", "contact/index.html:13"],
+      "gated": true
     },
     {
       "key": "youtube",
       "iubenda_service_id": 179,
       "loader": "iframe",
       "locations": ["index.html:191"],
-      "gated": false
+      "gated": true
     },
     {
       "key": "google-maps",
       "iubenda_service_id": 178,
       "loader": "iframe",
-      "locations": ["where/index.html:50"],
-      "gated": false
+      "locations": ["where/index.html:51"],
+      "gated": true
     },
     {
       "key": "google-recaptcha",
       "iubenda_service_id": 289,
       "loader": "script",
-      "locations": ["contact/index.html:22", "contact/index.html:58", "src/contact.js:6"],
+      "locations": ["contact/index.html:21", "contact/index.html:57", "src/contact.js:6"],
       "gated": false
     },
     {
       "key": "stripe",
       "iubenda_service_id": 84,
       "loader": "npm-sdk",
-      "locations": ["src/order.js:1", "src/order.js:22"],
+      "locations": ["src/order.js:1", "src/order.js:21"],
       "gated": false
     },
     {
       "key": "vercel-analytics",
       "iubenda_service_id": null,
       "loader": "npm-sdk",
-      "locations": ["src/main.js:1", "src/main.js:3"],
-      "gated": false
+      "locations": ["src/main.js:6", "src/main.js:11"],
+      "gated": true
     }
   ],
-  "declared": [2110, 335, 179, 178],
-  "declared_custom": []
+  "declared": [2110, 335, 179, 178, 289, 84],
+  "declared_custom": ["Vercel Web Analytics"]
 }
