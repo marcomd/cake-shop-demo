@@ -3,7 +3,9 @@
   <head>
     <script>
       var _iub = _iub || [];
-      _iub.csConfiguration = _iub.csConfiguration || {};
+      _iub.csConfiguration = _iub.csConfiguration || {
+        promptToAcceptOnBlockedElements: true,
+      };
       _iub.csConfiguration.callback = _iub.csConfiguration.callback || {};
       _iub.csConfiguration.callback.onPreferenceExpressedOrNotNeeded = function (preference) {
         var prefs = preference || (_iub.cs && _iub.cs.api && _iub.cs.api.getPreferences());
