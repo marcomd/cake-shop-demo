@@ -1,21 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <script>
-      var _iub = _iub || [];
-      _iub.csConfiguration = _iub.csConfiguration || {
-        promptToAcceptOnBlockedElements: true,
-      };
-      _iub.csConfiguration.callback = _iub.csConfiguration.callback || {};
-      _iub.csConfiguration.callback.onPreferenceExpressedOrNotNeeded = function (preference) {
-        var prefs = preference || (_iub.cs && _iub.cs.api && _iub.cs.api.getPreferences());
-        var purposes = (prefs && prefs.purposes) || {};
-        if (purposes[4]) {
-          window.__iubMeasurementAllowed = true;
-          window.dispatchEvent(new CustomEvent('iubenda:measurement-allowed'));
-        }
-      };
-    </script>
+    <script src="/iubenda-config.js"></script>
     <script type="text/javascript" src="https://embeds.iubenda.com/widgets/50ff6315-fc13-481c-b487-5044fb170a3d.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,11 +12,6 @@
     <link rel="dns-prefetch" href="https://js.stripe.com" />
     <link rel="stylesheet" href="/src/style.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRUMB0DEMO"></script>
-    <style>
-      .iub-legal-footer-logo a {
-        padding-top: 5px;
-      }
-    </style>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
