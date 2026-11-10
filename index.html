@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      var _iub = _iub || [];
+      _iub.csConfiguration = _iub.csConfiguration || {};
+      _iub.csConfiguration.callback = _iub.csConfiguration.callback || {};
+      _iub.csConfiguration.callback.onPreferenceExpressedOrNotNeeded = function (preference) {
+        var prefs = preference || (_iub.cs && _iub.cs.api && _iub.cs.api.getPreferences());
+        var purposes = (prefs && prefs.purposes) || {};
+        if (purposes[4]) {
+          window.__iubMeasurementAllowed = true;
+          window.dispatchEvent(new CustomEvent('iubenda:measurement-allowed'));
+        }
+      };
+    </script>
+    <script type="text/javascript" src="https://embeds.iubenda.com/widgets/50ff6315-fc13-481c-b487-5044fb170a3d.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
@@ -8,9 +22,6 @@
     <meta name="description" content="Crumbcloud bakes handmade celebration cakes to order. Fictitious business for a demo." />
     <meta name="theme-color" content="#fbf4ee" />
     <link rel="dns-prefetch" href="https://js.stripe.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/style.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRUMB0DEMO"></script>
     <script>
