@@ -1,0 +1,90 @@
+# iubenda Code CI: credential-free check of every PR (SPEC §7.3).
+#
+# Copy this file to .github/workflows/iubenda-code.yml in the site's repository.
+# While iubenda-code is private it needs one repository secret, IUBENDA_CODE_TOKEN:
+# a GitLab deploy token with read_repository on marco.mastrodonato/iubenda-code,
+# written as "<username>:<token>". No iubenda credentials and no LLM key are needed.
+#
+# Non-blocking: the check never fails the PR. To block on HIGH findings, add
+# `--fail-on high` to the check step and remove its `continue-on-error`.
+
+name: iubenda Code
+
+on:
+  pull_request: # never pull_request_target: PR code must not run with write access
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: iubenda-code-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the diff needs the merge base
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch iubenda Code
+        id: fetch
+        continue-on-error: true
+        env:
+          IUBENDA_CODE_TOKEN: ${{ secrets.IUBENDA_CODE_TOKEN }}
+          IUBENDA_CODE_REF: main
+        run: |
+          git clone --quiet --depth 1 --branch "$IUBENDA_CODE_REF" \
+            "https://${IUBENDA_CODE_TOKEN}@gitlab.group.team.blue/marco.mastrodonato/iubenda-code.git" \
+            "$RUNNER_TEMP/iubenda-code"
+          # Only the checker's own dependency. The PR's dependencies are never installed or run.
+          npm ci --prefix "$RUNNER_TEMP/iubenda-code/skills/iubenda-code/ci" --ignore-scripts --no-audit --no-fund
+
+      - name: Check the diff
+        id: check
+        if: steps.fetch.outcome == 'success'
+        continue-on-error: true
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          node "$RUNNER_TEMP/iubenda-code/skills/iubenda-code/ci/detect.mjs" \
+            --base "origin/$BASE_REF" \
+            --title "PR #$PR_NUMBER: \`$HEAD_REF\` → \`$BASE_REF\`" \
+            --summary "$GITHUB_STEP_SUMMARY" \
+            --comment "$RUNNER_TEMP/iubenda-report.md" \
+            --json "$RUNNER_TEMP/iubenda-report.json" > /dev/null
+
+      - name: Comment on the PR
+        # Fork PRs get no secrets, so they stop at the fetch step; this guard is a second line of defence.
+        if: steps.check.outcome == 'success' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/github-script@v7
+        env:
+          REPORT: ${{ runner.temp }}/iubenda-report.md
+          FINDINGS: ${{ steps.check.outputs.findings }}
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync(process.env.REPORT)) return;
+            const body = fs.readFileSync(process.env.REPORT, 'utf8');
+            const marker = '<!-- iubenda-code-ci -->';
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const previous = comments.find((c) => c.user?.type === 'Bot' && c.body?.startsWith(marker));
+            if (previous) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: previous.id, body });
+            } else if (Number(process.env.FINDINGS || 0) > 0) {
+              // Quiet when there is nothing to say (SPEC §9, low noise); later runs update this one comment.
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
